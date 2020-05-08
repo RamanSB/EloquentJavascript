@@ -13,16 +13,16 @@ function min(v1, v2){
   return minimum;
 }
 
+
 function calculateMinimum(){
   var v1 = Number(document.getElementById('1st-val').value);
   var v2 = Number(document.getElementById('2nd-val').value);
   let result = min(v1, v2);
   let pElem = document.getElementById('result-string-3.1');
-  pElem.innerHTML = '';  //erases result written from previous calculation                                                                                    
+  pElem.innerHTML = '';  //erases result written from previous calculation
   let resultString = `The minimum of ${v1} & ${v2} is: ${result}`;
   let textNode = document.createTextNode(resultString);
   pElem.appendChild(textNode);
-
 };
 
 
@@ -68,3 +68,25 @@ a stackoverflow error.
 In order to fix this: Any negative integer that is inputted can be multipledi by
 -1. This is true as if x is even or odd so is -x.
 */
+
+
+//Ex 3.3
+function countBs(string){
+  let numB = 0;
+  for(let char in string){
+    if(string[char] == 'B'){
+      numB+=1;
+    }
+  }
+  let pElem = document.getElementById('result-string-3.3');
+  let textNode = document.createTextNode(`Number of B's: ${numB}`);
+  pElem.innerHTML = ''; //erases previously written results.
+  pElem.appendChild(textNode);
+  return numB;
+}
+
+
+document.getElementById('input-text').addEventListener("input", function(){
+  let val = countBs(document.getElementById('input-text').value);
+  console.log(val);
+});
