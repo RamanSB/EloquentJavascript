@@ -90,3 +90,18 @@ document.getElementById('input-text').addEventListener("input", function(){
   let val = countBs(document.getElementById('input-text').value);
   console.log(val);
 });
+
+/*
+Simply pass the argument from countBs to countChar and hardcode the char argument
+to be 'B'.
+*/
+function countChar(string, char){
+  let total = 0;
+  for(let index in string){
+    if(string[index] == char){
+      total+=1;
+    }
+  }
+  console.log(`${char} appears ${total} times in ${string}`);
+  return total;
+}
