@@ -177,5 +177,46 @@ function nth(list, n){
 prepend(10, list);
 nth(list, 3);
 
-//ToDo: 4.4 (Deep Comparison)
-//Ex - 4.4
+
+//Ex - 4.4 (Deep Comparison)
+function deepEqual(val1, val2){
+  let keysForObject1 = Object.keys(val1);
+  let keysForObject2 = Object.keys(val2);
+  if(!checkIfKeysAreEqual(keysForObject1, keysForObject2)){
+    return false;
+  }
+  for(let key of keysForObject1){
+    if(typeof val1[key] == typeof val2[key]){
+      console.log(`Key: ${key} corresponds to values of equal type (${typeof val1[key]}) in both objects.`);
+      if(typeof val1[key] != "object" && val1[key] != null){
+        if(!(val1[key] === val2[key])){
+          console.log(`For key: ${key} | ${val1[key]} is not equal to ${val2[key]}`);
+          return false;
+        };
+      }else{
+        deepEqual(val1[key], val2[key]);
+      }
+    }else{
+      console.log(`Key: ${key} does not correspond to values of equal type.
+      +"\nValue1: ${typeof val1[key]} | Value2: ${typeof val2[key]}"`);
+      return false;
+    }
+  }
+  return true;
+}
+
+function checkIfKeysAreEqual(array1, array2){
+  let counter = 0;
+  if(array1.length == array2.length){
+    for(let key of array1){
+      if(array2.includes(key)){
+        counter+=1;
+      }
+    }
+  }
+  if(counter == array1.length){
+    return true;
+  }else{
+    return false;
+  }
+}
