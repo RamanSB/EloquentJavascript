@@ -9,3 +9,13 @@ let finalResult = inputArray.reduce((totalResult, item)=>{
 console.log(`Flattened Array: ${finalResult}`);
 
 //Ex 5.2 - Your Own Loop.
+function loop(value, testFunction, bodyFunction, updateFunction){
+    if(!testFunction(value)){
+        return false;
+    }
+    let returnValue = bodyFunction(value);
+    updateFunction(value);
+    loop(returnValue, testFunction, bodyFunction, updateFunction);
+}
+
+//Ex 5.3 -  
