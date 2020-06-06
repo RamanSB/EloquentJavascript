@@ -114,5 +114,10 @@ class GroupIterator{
           return newValue;
         }
     }
-
 }
+
+//Ex 6.4 - Every function has a call method we can invoke where we provide
+//the parameter which we invoke the function on (this) as well as additional
+//args we want to pass to the function.
+let map = {one: true, two: true, hasOwnProperty: true};
+console.log(hasOwnProperty.call(map, "one"));
